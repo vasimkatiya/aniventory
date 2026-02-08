@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <%= title %>
+        <form action="/add" method="post">
+            <label for="anime_name">anime name :</label>
+            <input type="text" name="anime_name" placeholder="aniem name">
+            <label for="type">type</label>
+            <select name="type" id="">
+                <option value="movie">movie</option>
+                <option value="series">series</option>
+            </select>
+            <label for="ep">episodes :</label>
+            <input type="number" name="ep" placeholder="episodes">
+            <label for="dubbed">dubbed :</label>
+            <select name="dubbed" id="">
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+            <label for="genre_name">genres :</label>
+            <select name="genre_name" id="">
+                <%genres.forEach((g)=>{%>
+                    <option value="<%= g.genre_name%>">
+                        <%= g.genre_name %>
+                    </option>
+                    <%})%>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <div class="error-messages">
+            <% if (errors && errors.length> 0) { %>
+                <ul>
+                    <% errors.forEach(err=> { %>
+                        <li style="color:red">
+                            <%= err.msg %>
+                        </li>
+                    <% }) %>
+                </ul>
+                <% } %>
+        </div>
+</body>
+
+</html>
