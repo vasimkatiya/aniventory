@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./partials/navBar')%>
+  
+    <a href="/genres/add">add genres</a>
+
+    <h1>all genres : </h1>
+    <% results.forEach((g)=>{%>
+        <div class="genre-card">
+            <h2><%= g.genre_name %></h2>
+            <a href="/genres/edit/<%=g.id%>">edit</a>
+            <a href="/genres/delete/<%=g.id%>">delete</a>
+        </div>    
+    <%})%>
+</body>
+</html>

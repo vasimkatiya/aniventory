@@ -5,6 +5,7 @@ const { addAnime, addAnimePost } = require("../controllers/add");
 
 
 const { body } = require("express-validator");
+// const genresRouter = require("./genresRoutes");
 
 const animeValidation = [
   body('anime_name').trim().notEmpty().withMessage('must enter anime name'),
@@ -21,6 +22,7 @@ IndexRouter.get("/",indexController);
 
 IndexRouter.get("/add",addAnime);
 IndexRouter.post("/add",animeValidation,addAnimePost);
+
 
 
 module.exports = IndexRouter;

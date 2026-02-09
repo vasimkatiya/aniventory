@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animes</title>
+</head>
+<body>
+    <%- include('./partials/navBar')%>
+
+    <h1><%= title %></h1>
+    <div class="container">
+
+        <%animes.forEach((a)=>{%>
+            <div class="card">
+                <h2 class="name"><%= a.anime_name %></h2> 
+                <p class="type">type : <%= a.type %></p>
+                <p class="genres">genres : <%= a.genre_name %></p>
+                <p class="ep">episodes : <%= a.ep %></p>
+                <p class="dubbed">dobbed : <%= a.dubbed %></p>
+                <a href="/animes/update/<%=a.id%>">update</a>
+                <a href="animes/delete/<%=a.id%>">delete</a>
+            </div>
+        <%})%>
+    </div>
+</body>
+</html>
