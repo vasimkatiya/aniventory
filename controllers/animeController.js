@@ -25,7 +25,7 @@ exports.updateAnimeGetController = async (req,res) =>{
 
     res.render("updateAnime",{
         title:"update anime : ",
-        result:fetchAnime.rows,
+        animes:fetchAnime.rows[0],
         errors:[],
         genres:genre.rows
     });
@@ -72,7 +72,7 @@ if (existingAnime.rows.length > 0) {
   return res.render('updateAnime', {
     title: 'update anime',
     genres: genre.rows,
-    anime:req.body,
+    animes:req.body,
     id:id,
     errors: [{ msg: 'Anime already exists' }],
   });

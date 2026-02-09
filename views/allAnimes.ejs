@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animes</title>
+    <link rel="stylesheet" href="/anime.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <%- include('./partials/navBar')%>
@@ -18,8 +20,10 @@
                 <p class="genres">genres : <%= a.genre_name %></p>
                 <p class="ep">episodes : <%= a.ep %></p>
                 <p class="dubbed">dobbed : <%= a.dubbed %></p>
-                <a href="/animes/update/<%=a.id%>">update</a>
-                <a href="animes/delete/<%=a.id%>">delete</a>
+                <div class="btns">
+                    <a href="/animes/update/<%=a.id%>">update</a>
+                    <a href="animes/delete/<%=a.id%>">delete</a>
+                </div>
             </div>
         <%})%>
     </div>

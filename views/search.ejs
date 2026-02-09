@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-    
+<body class="search-body">
+
+    <%- include('./partials/navBar')%>
+    <div class="search-con">
+
+        
+        <% anime.forEach((a)=>{%>
+            <div class="anime-card">
+            <h2><%= a.anime_name %></h2>
+            <p>episodes :<%=a.ep%></p>
+            <p>dubbed :<%=a.dubbed%></p>
+        </div>
+            <%}) %>
+</div>
 </body>
 </html>

@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add-Anime</title>
+    <title>update-Anime</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/form.css">
 </head>
 
 <body>
     <%- include('./partials/navBar')%>
     <%= title %>
-        <form action="/animes/update/<%= id %>" method="post">
+        <form action="/animes/update/<%= animes.id %>" method="post">
             <label for="anime_name">anime name :</label>
-            <input type="text" value="<%= anime.anime_name %>" name="anime_name" placeholder="aniem name">
+            <input type="text" value="<%= animes.anime_name %>" name="anime_name" placeholder="aniem name">
             <label for="type">type</label>
             <select name="type" id="">
                 <option value="movie">movie</option>
                 <option value="series">series</option>
             </select>
             <label for="ep">episodes :</label>
-            <input type="number" value="<%= anime.ep %>" name="ep" placeholder="episodes">
+            <input type="number" value="<%= animes.ep %>" name="ep" placeholder="episodes">
             <label for="dubbed">dubbed :</label>
             <select name="dubbed" id="">
                 <option value="yes">yes</option>

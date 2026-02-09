@@ -1,11 +1,9 @@
 const { Router } = require("express");
 const { indexController } = require("../controllers/indexController");
 const { addAnime, addAnimePost } = require("../controllers/add");
-// const validation = require('../validation/validationError');
 
 
 const { body } = require("express-validator");
-// const genresRouter = require("./genresRoutes");
 
 const animeValidation = [
   body('anime_name').trim().notEmpty().withMessage('must enter anime name'),

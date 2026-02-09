@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home-Ainventory</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body class="index-body">
     <%- include('./partials/navBar')%>
-    <div class="search-option">
-        <form action="/search" method="get">
-            <input type="text" placeholder="search by anime name" name="search_anime">
-            <button type="submit">search</button>
-        </form>
-        <form action="/search/genres" method="get">
-            <input type="text" name="search_genres" placeholder="search by genres">
-            <button type="submit">search</button>
-        </form>
-    </div>
+    <h1 class="line">welcome to Aniventory</h1>
 </body>
 </html>

@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Genres</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/genre.css">
+
 </head>
 <body>
     <%- include('./partials/navBar')%>
   
-    <a href="/genres/add">add genres</a>
 
-    <h1>all genres : </h1>
-    <% results.forEach((g)=>{%>
-        <div class="genre-card">
-            <h2><%= g.genre_name %></h2>
-            <a href="/genres/update/<%=g.id%>">edit</a>
-            <a href="/genres/delete/<%=g.id%>">delete</a>
-        </div>    
-    <%})%>
+    <form action="genres/search" method="get">
+            <input type="text" name="search" placeholder="search by genres">
+            <button type="submit">search</button>
+    </form>
+
+    <h1 class="white">all genres</h1>
+    <div class="container">
+
+        <% results.forEach((g)=>{%>
+            <div class="genre-card">
+                <h2 class="genre" ><%= g.genre_name %></h2>
+                <div class="btns">
+                    <a href="/genres/update/<%=g.id%>">edit</a>
+                    <a href="/genres/delete/<%=g.id%>">delete</a>
+                </div>
+            </div>    
+            <%})%>
+    </div>
 </body>
 </html>
