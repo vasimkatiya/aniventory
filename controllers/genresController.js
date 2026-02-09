@@ -53,3 +53,38 @@ exports.deleteGenres = async (req,res) =>{
     await pool.query("delete from genres where id = $1",[id]);
     res.redirect('/genres');
 }
+
+exports.updateGenresGet = async (req,res) =>{
+    const {id} = req.params;
+    const genres = await pool.query("select * from genres where id = $1",[id]);
+    console.log("update genres :",genres.rows);
+    console.log("update genres :",genres.rows[0].id);
+    
+    res.render("updateGenres",{
+        title:"update genres",
+        result:genres.rows,
+        err:[]
+    });
+
+}
+
+exports.updateGenresPost = async (req,res) =>{
+    const {id} = req.params;
+    const {updateGenres} = req.body;
+
+     const existingGenre = await pool.query(
+        "SELECT id FROM genres WHERE genre_name = $1 AND id != $2",
+        [updateGenres, id]
+    );
+
+    if (existingGenre.rows.length > 0) {
+        const genres = await pool.query("SELECT * FROM genres WHERE id = $1", [id]);
+        return res.render('updateGenres', {
+            title: "update genres",
+            result: genres.rows,
+            err: [{ msg: "This genre already exists!" }]
+        });
+    }
+    await pool.query("update genres set genre_name = $1 where id = $2",[updateGenres,id]);
+    res.redirect("/genres")
+}

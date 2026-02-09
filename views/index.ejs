@@ -7,5 +7,15 @@
 </head>
 <body>
     <%- include('./partials/navBar')%>
+    <div class="search-option">
+        <form action="/search" method="get">
+            <input type="text" placeholder="search by anime name" name="search_anime">
+            <button type="submit">search</button>
+        </form>
+        <form action="/search/genres" method="get">
+            <input type="text" name="search_genres" placeholder="search by genres">
+            <button type="submit">search</button>
+        </form>
+    </div>
 </body>
 </html>

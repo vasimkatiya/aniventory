@@ -14,7 +14,7 @@
     <% results.forEach((g)=>{%>
         <div class="genre-card">
             <h2><%= g.genre_name %></h2>
-            <a href="/genres/edit/<%=g.id%>">edit</a>
+            <a href="/genres/update/<%=g.id%>">edit</a>
             <a href="/genres/delete/<%=g.id%>">delete</a>
         </div>    
     <%})%>
