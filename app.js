@@ -4,6 +4,7 @@ const path = require('path');
 const IndexRouter = require('./routes/IndexRoutes');
 const AnimeRouter = require('./routes/animeRoutes');
 const genresRouter = require('./routes/genresRoutes');
+const main = require('./db/populateDatabase');
 
 
 const port = process.env.PORT || 3000;
@@ -25,5 +26,6 @@ app.use('/animes',AnimeRouter);
 app.use("/genres",genresRouter)
 
 app.listen(port,()=>{
+    main();
     console.log(`server running in port ${port}`);
 })

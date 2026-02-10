@@ -72,4 +72,4 @@ const client = new Client({
     await client.end();
 }
 
-main();
+module.exports = main;
