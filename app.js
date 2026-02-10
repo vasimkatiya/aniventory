@@ -24,8 +24,6 @@ app.use('/',IndexRouter);
 app.use('/animes',AnimeRouter);
 app.use("/genres",genresRouter)
 
-// app.listen(port,()=>{
-//     console.log(`server running in port : ${port}`);
-// });
-
-module.exports = app;
+app.listen(port,()=>{
+    console.log(`server running in port ${port}`);
+})
